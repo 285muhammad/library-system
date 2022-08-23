@@ -157,6 +157,12 @@ struct libaray_system
                 print_books_sorted_by_id();
             else if (choice == 5)
                 print_books_sorted_by_name();
+            else if (choice == 6)
+                add_user();
+            else if (choice == 9 )
+                print_users();
+            else 
+                break;
 
         }
         
@@ -238,6 +244,16 @@ struct libaray_system
 
         }
 
+    }
+
+    void add_user(){
+        users[total_users++].add_user();
+    }
+
+    void print_users(){
+        for(int i = 0 ; i < total_users ; i++ ){
+            users[i].print_all_users();
+        }
     }
 
 
