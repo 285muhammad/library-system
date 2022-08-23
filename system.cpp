@@ -273,7 +273,8 @@ struct libaray_system
         return -1;
     }
 
-    void read_book_name_and_user_name (int &user_idx , int &book_idx , int tries = 3){
+    bool read_book_name_and_user_name (int &user_idx , int &book_idx , int tries = 3){
+
         string book_name , user_name;
 
         while (tries--)
@@ -300,12 +301,30 @@ struct libaray_system
             }
             
             int book_id { books[book_idx].id};
+            return true;
 
         }
 
-        if(tries ==0)
+        if(tries ==0){
+
             cout << "You tried several times and all are wrong " << endl;
+            return false;
+        }
+
         
+    }
+
+    void user_want_to_borrow(){
+        int book_idx, user_idx;
+        if(!read_book_name_and_user_name(user_idx , book_idx))
+            return ;
+        
+        int user_id {users[user_idx].national_id};
+        int book_id {books[book_idx].id};
+
+
+        books[book_id].borrow();
+        users[user_id].user_borrow(book_id);
     }
 
 };
