@@ -76,6 +76,36 @@ struct user
         national_id = -1 ;
         number_of_borrowed_books = 0;
     }
+
+    void add_user(){
+        cout <<"Enter user NAME & NATIONA ID " << endl;
+        cin >> name >> national_id ;
+    }
+
+
+
+
+    void user_borrow(int book_id){
+        borrowed_books_ids[number_of_borrowed_books++] = book_id ;
+    }
+
+    bool is_borrow (int book_id){
+        for (int i = 0 ; i < number_of_borrowed_books ; i++){
+            if(book_id == borrowed_books_ids[i])
+                return true;
+        }
+        return false;
+    }
+
+    void print_all_users(){
+        cout << "User Name ==>  "  << name 
+            << " National Id ==> " << national_id << endl;
+    }
+
+
+
+
+
 };
 
 int main(){
