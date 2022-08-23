@@ -64,6 +64,20 @@ bool compare_id (book &a , book &b){
     return a.id < b.id ;
 }
 
+struct user
+{
+    string name ;
+    int national_id;
+    int borrowed_books_ids[MAX_BOOKS];
+    int number_of_borrowed_books;
+
+    user(){
+        name = " ";
+        national_id = -1 ;
+        number_of_borrowed_books = 0;
+    }
+};
+
 int main(){
     return 0;
 }
