@@ -152,7 +152,11 @@ struct libaray_system
             if(choice == 1)
                 add_book();
             else if (choice == 2)
-                search_book_by_prefix()
+                search_book_by_prefix();
+            else if (choice == 4)
+                print_books_sorted_by_id();
+            else if (choice == 5)
+                print_books_sorted_by_name();
 
         }
         
@@ -210,6 +214,33 @@ struct libaray_system
             cout << "There is no books with this prefix "  << endl;
 
     }
+
+    void print_books_sorted_by_id(){
+        sort(books , books + total_books , compare_id);
+
+        for(int i=0 ; i < total_books ; i++){
+            cout << "Book id ==> " << books[i].id
+                << " name ==> " << books[i].name
+                << " total quantity " << books[i].total_quantity
+                << " total borrowd " << books[i].total_borrowed << endl ;
+
+        }
+    }
+
+    void print_books_sorted_by_name(){
+        sort(books , books + total_books , compare_name);
+
+        for(int i=0 ; i < total_books ; i++){
+            cout << "Book id ==> " << books[i].id
+                << " name ==> " << books[i].name
+                << " total quantity " << books[i].total_quantity
+                << " total borrowd " << books[i].total_borrowed << endl ;
+
+        }
+
+    }
+
+
 };
 
 
