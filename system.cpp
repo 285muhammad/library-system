@@ -143,7 +143,42 @@ struct libaray_system
     libaray_system(){
         total_books = total_users = 0;
     }
-    
+
+    void run(){
+        while (true)
+        {
+            int choice {};
+        }
+        
+    }
+
+    int menu(){
+        int choice {0};
+
+        while (choice ==0)
+        {
+            cout << "Library Menu " << endl;
+            cout << "1) Add a book " << endl;
+            cout << "2) Serach about books by prefix " << endl;
+            cout << "3) Print names of who borrowed the book" << endl;
+            cout << "4) Print books sorted by id " << endl ;
+            cout << "5) Print books sorted by name " << endl;
+            cout << "6) Add a user " << endl;
+            cout << "7) User want to borrow a book " << endl;
+            cout << "8) User want to retrun a book " << endl;
+            cout << "9) Print Users " << endl;
+            cout << "10) Exist " << endl;
+
+            cin >> choice ;
+
+            if(!(choice >=1 && choice <= 10)){
+                cout << "Invalid Choice , Try Again" << endl;
+                choice = 0;
+            }
+
+        }
+        
+    }
 };
 
 
