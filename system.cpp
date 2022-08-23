@@ -147,7 +147,13 @@ struct libaray_system
     void run(){
         while (true)
         {
-            int choice {};
+            int choice {menu()};
+
+            if(choice == 1)
+                add_book();
+            else if (choice == 2)
+                search_book_by_prefix()
+
         }
         
     }
@@ -177,7 +183,32 @@ struct libaray_system
             }
 
         }
+
+        return choice;
         
+    }
+
+    void add_book(){
+        books[total_books++].add_book();
+    }
+
+    void search_book_by_prefix(){
+        string prefix;
+        cout << "Enter the book prefix" << endl;
+        cin >> prefix ;
+
+        int cnt {0};
+
+        for(int i=0 ; i<total_books ;i++){
+            if(books[i].search_by_prefix(prefix)){
+                cout << books[i].name << endl;
+                cnt++;
+            }
+        }
+
+        if (cnt == 0 )
+            cout << "There is no books with this prefix "  << endl;
+
     }
 };
 
