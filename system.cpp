@@ -273,6 +273,41 @@ struct libaray_system
         return -1;
     }
 
+    void read_book_name_and_user_name (int &user_idx , int &book_idx , int tries = 3){
+        string book_name , user_name;
+
+        while (tries--)
+        {
+            cout<<"Enter User name and book name " << endl;
+            cin >> user_name >> book_name ;
+
+            user_idx = find_user_idx_by_name (user_name);
+
+            if(user_idx == -1){
+                cout << " There is no users with this name " << endl;
+                continue; ;
+                
+            }
+            
+            int user_id {users[user_idx].national_id};
+
+            book_idx = find_book_idx_by_name (book_name);
+
+            if(book_idx == -1) {
+                cout<< "There is no books with this name " << endl;
+                continue;;
+
+            }
+            
+            int book_id { books[book_idx].id};
+
+        }
+
+        if(tries ==0)
+            cout << "You tried several times and all are wrong " << endl;
+        
+    }
+
 };
 
 
