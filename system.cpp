@@ -97,6 +97,31 @@ struct user
         return false;
     }
 
+    void user_return(int book_id){
+        if(number_of_borrowed_books == 0){
+            cout << "There is no borrowed books" << endl;
+            return ;
+        }
+
+        int is_removed {false};
+        
+        for (int i = 0 ; i < number_of_borrowed_books ; i++){
+            if(book_id = borrowed_books_ids [i]){
+                for(int j = i+1 ; j < number_of_borrowed_books ; j++)
+                    borrowed_books_ids[j-1] = borrowed_books_ids[j];
+                is_removed = true ;
+                number_of_borrowed_books --;
+            }
+
+        }
+
+        if(!is_removed)
+            cout << "User ==> " << name 
+            << " never borrowed book with id " << national_id <<endl;
+        
+
+    }
+
     void print_all_users(){
         cout << "User Name ==>  "  << name 
             << " National Id ==> " << national_id << endl;
@@ -107,6 +132,8 @@ struct user
 
 
 };
+
+
 
 int main(){
     return 0;
