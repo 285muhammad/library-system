@@ -159,6 +159,10 @@ struct libaray_system
                 print_books_sorted_by_name();
             else if (choice == 6)
                 add_user();
+            else if (choice == 7 )
+                user_want_to_borrow();
+            else if (choice == 8)
+                user_want_to_return_book();
             else if (choice == 9 )
                 print_users();
             else 
@@ -315,6 +319,7 @@ struct libaray_system
     }
 
     void user_want_to_borrow(){
+
         int book_idx, user_idx;
         if(!read_book_name_and_user_name(user_idx , book_idx))
             return ;
@@ -327,6 +332,20 @@ struct libaray_system
         users[user_id].user_borrow(book_id);
     }
 
+    void user_want_to_return_book(){
+        int user_idx , book_idx;
+
+        if(!read_book_name_and_user_name(user_idx , book_idx))
+            return ;
+        
+        int book_id {books[book_idx].id};
+        int user_id {users[user_idx].national_id};
+
+        users[user_idx].user_return(book_id);
+        books[book_idx].return_book();
+
+
+    }
 };
 
 
