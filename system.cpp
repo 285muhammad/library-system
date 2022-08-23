@@ -56,6 +56,13 @@ struct book
     }
 };
 
+bool compare_name (book &a ,book &b){
+    return a.name < b.name ;
+}
+
+bool compare_id (book &a , book &b){
+    return a.id < b.id ;
+}
 
 int main(){
     return 0;
