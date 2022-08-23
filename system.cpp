@@ -36,10 +36,11 @@ struct book
         return true;
     }
 
-    void borrow (){
+    bool  borrow (int user_id){
         if (total_quantity  - total_borrowed == 0)
-            return;
+            return false;
         total_borrowed++;
+        return true;
 
     }
     void return_book(){
@@ -309,11 +310,8 @@ struct libaray_system
 
         }
 
-        if(tries ==0){
-
             cout << "You tried several times and all are wrong " << endl;
             return false;
-        }
 
         
     }
@@ -328,8 +326,11 @@ struct libaray_system
         int book_id {books[book_idx].id};
 
 
-        books[book_id].borrow();
-        users[user_id].user_borrow(book_id);
+        if(!books[book_idx].borrow(user_id))
+            cout << "There no copies form this book " << endl ;
+        else 
+            users[user_idx].user_borrow(book_id);
+
     }
 
     void user_want_to_return_book(){
@@ -346,9 +347,36 @@ struct libaray_system
 
 
     }
+
+    void print_names_who_borrowed_book(){
+        string book_name;
+        cout << "Enter the book name " << endl;
+        cin >> book_name ;
+
+        int book_idx {find_book_idx_by_name(book_name)};
+
+        if(book_idx == -1){
+            cout << "There is no books with this name " << endl;
+            return ;
+        }
+
+        int book_id {books[book_idx].id};
+
+        if(books[book_idx].total_borrowed == 0 ){
+            cout << "There is no borrowed books " << endl;
+            return ;
+        }
+
+        for (int i = 0 ; i < total_users ; i++){
+            if(users[i].is_borrow(book_id))
+                cout << users[i].name << endl;
+        }
+    }
 };
 
 
 int main(){
+    libaray_system library;
+    library.run();
     return 0;
 }
