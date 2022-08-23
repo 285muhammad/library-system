@@ -256,6 +256,22 @@ struct libaray_system
         }
     }
 
+    int find_user_idx_by_name (string user_name){
+        for(int i=0 ; i < total_users ; i++){
+            if(users[i].name == user_name)
+                return i;
+        }
+        return -1;
+
+    }
+
+    int find_book_idx_by_name (string book_name){
+        for(int i=0 ; i < total_books ; i++){
+            if(books[i].name == book_name)
+                return i;
+        }
+        return -1;
+    }
 
 };
 
