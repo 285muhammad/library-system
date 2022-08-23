@@ -19,6 +19,29 @@ struct book
         id = -1 ;
         total_borrowed = total_quantity = 0 ;
     }
+
+    void add_book (){
+        cout << "Enter book ID & NAME & QUANTITAY " << endl;
+        cin >> id >> name >> total_quantity;
+    }
+
+    bool search_by_prefix (string prefix){
+        if(name.size() < prefix.size())
+            return false;
+        
+        for (int i = 0 ; i < (int) prefix.size() ; i++){
+            if(prefix[i] != name[i])
+                return false;
+        }
+        return true;
+    }
+
+    void borrow (){
+        if (total_quantity  - total_borrowed == 0){
+            cout << "T";
+        }
+
+    }
 };
 
 
