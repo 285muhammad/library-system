@@ -37,9 +37,21 @@ struct book
     }
 
     void borrow (){
-        if (total_quantity  - total_borrowed == 0){
-            cout << "T";
-        }
+        if (total_quantity  - total_borrowed == 0)
+            return;
+        total_borrowed++;
+
+    }
+    void return_book(){
+        assert (total_borrowed > 0 && total_quantity > 0 );
+        total_borrowed--;
+    }
+
+    void print_books(){
+        
+        cout << "book id ==> " << id << " name ==> "<<name
+            << " quantity ==> " << total_quantity 
+            << " total borrowed ==> " << total_borrowed <<endl;
 
     }
 };
