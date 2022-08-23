@@ -133,6 +133,18 @@ struct user
 
 };
 
+struct libaray_system
+{
+    int total_books ;
+    int total_users ;
+    book books[MAX_BOOKS];
+    user users[MAX_USERS];
+
+    libaray_system(){
+        total_books = total_users = 0;
+    }
+    
+};
 
 
 int main(){
